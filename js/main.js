@@ -3,17 +3,25 @@
 // Il numero ottenuto appare al centro del quadrato.
 
 $(document).ready(function() {
+    // utilizzo hendlebars per creare la griglia
+    var source = $('#grid-template').html();
+    var template = Handlebars.compile(source);
+    var square = template();
+    for (var i = 0; i < 36; i++) {
+        $('.griglia').append(square);
+    }
 
-
+    // al click sul quadrato corrispondente appare il colore in base al numero random generato
     $('.square').click(function() {
+
         var that = $(this);
+
         $.ajax({
             url:'https://flynn.boolean.careers/exercises/api/array/integers?min=1&max=9&items=1',
             method: 'GET',
             success: function (data) {
                 var numeroRandom = data.response;
                 esito(numeroRandom, that);
-                $(that).children("p").text(numeroRandom);
             },
             error: function () {
                 alert('ERRORE');
@@ -26,9 +34,15 @@ $(document).ready(function() {
 
     function esito(numRand, elementClicked) {
         if (numRand <= 5) {
+            $(elementClicked).removeClass('yellow');
+            $(elementClicked).removeClass('green');
             $(elementClicked).addClass('yellow');
+            $(elementClicked).children('p').text(numRand);
         } else {
+            $(elementClicked).removeClass('green');
+            $(elementClicked).removeClass('yellow');
             $(elementClicked).addClass('green');
+            $(elementClicked).children('p').text(numRand);
         }
     }
 });
