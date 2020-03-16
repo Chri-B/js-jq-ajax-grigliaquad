@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ececec;
+}
+
+.griglia {
+    height: 600px;
+    width: 600px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.square {
+    width: 15%;
+    height: 15%;
+    border: 1px solid black;
+    cursor: pointer;
+    display: flex;
+}
+
+.square p {
+    margin: auto;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.square.green {
+    background-color: rgba(0, 184, 59, 0.7);
+}
+
+.square.yellow {
+    background-color: rgba(255, 239, 20, 0.7);
+}
