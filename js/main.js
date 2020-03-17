@@ -34,14 +34,14 @@ $(document).ready(function() {
 
     function esito(numRand, elementClicked) {
         if (numRand <= 5) {
-            $(elementClicked).removeClass('yellow');
-            $(elementClicked).removeClass('green');
-            $(elementClicked).addClass('yellow');
+            // $(elementClicked).removeClass('yellow');
+            // $(elementClicked).removeClass('green');
+            $(elementClicked).addClass('yellow').removeClass('green');
             $(elementClicked).children('p').text(numRand);
         } else {
-            $(elementClicked).removeClass('green');
-            $(elementClicked).removeClass('yellow');
-            $(elementClicked).addClass('green');
+            // $(elementClicked).removeClass('green');
+            // $(elementClicked).removeClass('yellow');
+            $(elementClicked).addClass('green').removeClass('yellow');
             $(elementClicked).children('p').text(numRand);
         }
     }
