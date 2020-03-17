@@ -6,9 +6,8 @@ $(document).ready(function() {
     // utilizzo hendlebars per creare la griglia
     var source = $('#grid-template').html();
     var template = Handlebars.compile(source);
-    var square = template();
     for (var i = 0; i < 36; i++) {
-        $('.griglia').append(square);
+        $('.griglia').append(template);
     }
 
     // al click sul quadrato corrispondente appare il colore in base al numero random generato
@@ -36,13 +35,13 @@ $(document).ready(function() {
         if (numRand <= 5) {
             // $(elementClicked).removeClass('yellow');
             // $(elementClicked).removeClass('green');
-            $(elementClicked).addClass('yellow').removeClass('green');
-            $(elementClicked).children('p').text(numRand);
+            elementClicked.addClass('yellow').removeClass('green');
+            elementClicked.children('p').text(numRand);
         } else {
             // $(elementClicked).removeClass('green');
             // $(elementClicked).removeClass('yellow');
-            $(elementClicked).addClass('green').removeClass('yellow');
-            $(elementClicked).children('p').text(numRand);
+            elementClicked.addClass('green').removeClass('yellow');
+            elementClicked.children('p').text(numRand);
         }
     }
 });
